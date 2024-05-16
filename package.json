@@ -1,19 +1,33 @@
 {
   "name": "vue-extensible-mail",
   "version": "0.0.1",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
   "description": "",
   "scripts": {
-    "build": "bun run build.mjs",
+    "build": "unbuild",
     "prepublishOnly": "bun run build"
   },
   "files": [
     "dist"
   ],
-  "keywords": [
-    "bun"
-  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/Darkphoenix2704/vue-extensible-mail#readme",
   "repository": {
@@ -31,6 +45,7 @@
     "@vue/server-renderer": "^3.4.27",
     "import-string": "^0.1.2",
     "scule": "^1.3.0",
+    "unbuild": "^2.0.0",
     "vue": "^3.4.27"
   }
 }
