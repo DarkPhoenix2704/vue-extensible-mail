@@ -13,6 +13,8 @@ import { pascalCase } from "scule";
 import { readdirSync, readFileSync, statSync } from "fs";
 import { join, extname } from "path";
 
+import defaultComponents from './components'
+
 const userComponents = {} as Record<string, Component>;
 
 function getAllVueComponents(
@@ -135,6 +137,7 @@ export async function templateRender(
         );
         if (componentCode) {
           app.component(componentName, {
+            ...defaultComponents,
             ...componentCode,
             ...userComponents,
           });
