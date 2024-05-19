@@ -41,7 +41,7 @@ function getAllVueComponents(
   return result;
 }
 
-export function createEmailClient({
+function createEmailClient({
   path,
   components = {},
 }: {
@@ -61,6 +61,11 @@ export function createEmailClient({
       userComponents[name] = component;
     },
   };
+}
+
+export {
+  createEmailClient,
+  defaultComponents,
 }
 
 async function renderEmail(
